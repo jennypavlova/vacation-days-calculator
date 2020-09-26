@@ -1,0 +1,37 @@
+{
+  "name": "vacation_days_calculator",
+  "version": "1.0.0",
+  "description": "Vacation days calculator",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run test",
+    "dev": "tsnd ./src"
+  },
+  "keywords": [
+    "vacation",
+    "days",
+    "calculator"
+  ],
+  "author": "Dzheni Pavlova",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/preset-typescript": "^7.10.4",
+    "moment": "^2.29.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "^4.2.0",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-jest": "^24.0.2",
+    "jest": "^26.4.2",
+    "prettier": "2.1.2",
+    "ts-node-dev": "^1.0.0-pre.63",
+    "typescript": "^4.0.3"
+  },
+  "engines": {
+    "node": ">=12.8.0"
+  },
+  "engineStrict": true
+}
