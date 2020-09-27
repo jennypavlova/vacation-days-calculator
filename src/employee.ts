@@ -8,6 +8,11 @@ export type Employee = {
   vacantionDays?: number;
 };
 
+export type EmployeeVacation = {
+  name: string;
+  vacationDays: number;
+};
+
 const dateOfBirthAsDate = (dateOfBirthString: string) =>
   moment(dateOfBirthString, 'DD.MM.YYYY').utc().startOf('day');
 

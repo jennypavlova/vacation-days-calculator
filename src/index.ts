@@ -1,11 +1,7 @@
-import { Employee, specialContract, calculateExtraDays, startedThisYear } from './employee';
+import { Employee, EmployeeVacation, specialContract, calculateExtraDays, startedThisYear } from './employee';
 import { parseEmployeesData } from './parseEmployeesData';
+import { outputCsvData } from './output';
 const MINIMUM_VACATION_DAYS = 26;
-
-type EmployeeVacation = {
-  name: string;
-  vacationDays: number;
-};
 
 const setVacationDaysSpecial = (employees: Employee[]) =>
   employees.map((employee) => {
@@ -29,6 +25,8 @@ const getEmployees = async () => {
     startDate: employee.startDate,
     specialContract: Number(employee.specialContract),
   }));
+
+  outputCsvData(getVacationList(setVacationDaysSpecial(employees)));
 
   return getVacationList(setVacationDaysSpecial(employees));
 };

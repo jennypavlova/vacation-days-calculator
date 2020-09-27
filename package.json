@@ -19,6 +19,7 @@
   "dependencies": {
     "@babel/preset-typescript": "^7.10.4",
     "csv-parser": "^2.3.3",
+    "csv-stringify": "^5.5.1",
     "jest": "^26.4.2",
     "moment": "^2.29.0",
     "neat-csv": "^5.2.0"
