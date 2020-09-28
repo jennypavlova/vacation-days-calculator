@@ -1,19 +1,14 @@
-import fs from 'fs';
-import stringify, { Stringifier } from 'csv-stringify';
+import { writeFile } from 'fs';
+import { promisify } from 'util';
+const promisifiedWriteFile = promisify(writeFile);
+
+import stringify from 'csv-stringify/lib/sync';
 import { EmployeeVacation } from './employee';
 
-export const outputCsvData = (vacationList: EmployeeVacation[]): Stringifier =>
-  stringify(
-    vacationList,
-    {
-      header: true,
-    },
-    (error: Error, output: string) => {
-      if (error) {
-        throw new Error('Error while writhing the csv');
-      }
-      fs.writeFile(__dirname + '/vacationList.csv', output, () =>
-        console.log('Generated vacationList.csv'),
-      );
-    },
-  );
+export const outputCsvData = async (vacationList: EmployeeVacation[]): Promise<void> => {
+  const csv = stringify(vacationList, {
+    header: true,
+  });
+  await promisifiedWriteFile(__dirname + '/vacationList.csv', csv);
+  console.log('Generated vacationList.csv');
+};

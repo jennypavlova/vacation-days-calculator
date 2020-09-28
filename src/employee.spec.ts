@@ -1,11 +1,7 @@
-import moment from 'moment';
-
-import './index';
-import { Employee, specialContract, calculateExtraDays, startedThisYear } from './employee';
+import { Employee, calculateExtraDays, startedThisYear } from './employee';
 
 describe('Vacation Days Calculater', () => {
   let employee: Employee;
-  let employeeSpecial: Employee;
   let newEmployee: Employee;
   beforeEach(() => {
     employee = {
@@ -13,27 +9,11 @@ describe('Vacation Days Calculater', () => {
       dateOfBirth: '29.11.1951',
       startDate: '01.01.2002',
     };
-    employeeSpecial = {
-      name: 'Peter Becker',
-      dateOfBirth: '11.08.1992',
-      startDate: '15.05.2017',
-      specialContract: 29,
-    };
     newEmployee = {
       name: 'Peter Becker',
       dateOfBirth: '11.08.1992',
       startDate: '15.01.2020',
     };
-  });
-  describe('When calculating the special contract condition', () => {
-    it('Should return minimum vacation days', () => {
-      const specialVacation = specialContract(employee);
-      expect(specialVacation).toBe(0);
-    });
-    it('Should return special vacation days', () => {
-      const specialVacation = specialContract(employeeSpecial);
-      expect(specialVacation).toBe(29);
-    });
   });
 
   describe('When calculating the extra days per 5 years of employment', () => {

@@ -19,13 +19,10 @@ const dateOfBirthAsDate = (dateOfBirthString: string) =>
 const startDateAsDate = (startDateString: string) =>
   moment(startDateString, 'DD.MM.YYYY').utc().startOf('day');
 
-export const specialContract = (employee: Employee): number =>
-  employee.specialContract ? employee.specialContract : 0;
-
 export const calculateExtraDays = (startDate: string, dateOfBirth: string): number => {
   const today = moment().utc().startOf('day');
-  const age: number = today.diff(dateOfBirthAsDate(dateOfBirth), 'years');
   const employmentYears: number = today.diff(startDateAsDate(startDate), 'years');
+  const age: number = today.diff(dateOfBirthAsDate(dateOfBirth), 'years');
   if (age < 30) {
     return 0;
   }
@@ -39,7 +36,7 @@ export const startedThisYear = (startDate: string, daysPerYear: number): number 
     'years',
   );
   const employmentMonths: number = today.diff(
-    moment(startDateAsDate(startDate), 'DD.MM.YYYY').utc().startOf('day'),
+    moment(startDateAsDate(startDate), 'DD.MM.YYYY').utc().startOf('month'),
     'months',
   );
   if (employmentMonths < 1) {
