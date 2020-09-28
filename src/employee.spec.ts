@@ -110,5 +110,17 @@ describe('Vacation Days Calculater', () => {
         ),
       ).toBe(MINIMUM_VACATION_DAYS);
     });
+    it('Employee below 30 years starting next year', () => {
+      expect(
+        calculateVacationDays(
+          {
+            name: 'Peter Becker',
+            dateOfBirth: `01.01.${currentYear - 20}`,
+            startDate: `01.01.${currentYear + 1}`,
+          },
+          currentYear,
+        ),
+      ).toBe(0);
+    });
   });
 });
